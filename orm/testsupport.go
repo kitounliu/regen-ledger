@@ -56,6 +56,11 @@ func (d debuggingGasMeter) ConsumeGas(amount types.Gas, descriptor string) {
 	d.g.ConsumeGas(amount, descriptor)
 }
 
+func (d debuggingGasMeter) RefundGas(amount types.Gas, descriptor string) {
+	fmt.Printf("++ Refund gas: %q :%d\n", descriptor, amount)
+	d.g.RefundGas(amount, descriptor)
+}
+
 func (d debuggingGasMeter) IsPastLimit() bool {
 	return d.g.IsPastLimit()
 }
